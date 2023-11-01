@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+           
+
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .login-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+            .form-group label {
+                
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            .form-group button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+                .form-group button:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" action="login.php" method="post">
+            <div class="form-group">
+                <label for="username">Gebruikersnaam</label>
+                <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Wachtwoord</label>
+                <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Inloggen</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
