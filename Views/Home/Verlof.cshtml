@@ -5,14 +5,11 @@
 @*verlof uren beschikbaar*@
 <div class="uren">
     <h3>
-        Uren beschikbaar: 8
+        Uren gebruikt: 9 @*Model.VerlofurenGebruikt*@
     </h3>
-    @*VerlofurenGebruikt vanuit verlof.cs trekken*@
     <h3>
-            Uren gebruikt: @Model.VerlofurenGebruikt
-            Uren beschikbaar: @Model.VerlofurenBeschikbaar
+        Uren beschikbaar: 20 @*@Model.VerlofurenBeschikbaar*@
     </h3>
-
     <div id="piechart_3d" style="width: 900px; height: 500px;">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
@@ -36,4 +33,31 @@
             }
         </script>
     </div>
+</div>
+
+@model List<User>
+<div class="Aanwezig">
+<h5>Schoonmakers</h5>
+    @if (Model != null)
+    {
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Aanwezig</th>
+            </tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Department</td>
+                    <td>@(user.Aanwezig ? "Yes" : "No")</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No data available.</p>
+    }
 </div>
