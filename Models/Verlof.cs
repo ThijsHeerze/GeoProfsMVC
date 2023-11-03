@@ -5,6 +5,7 @@ namespace GeoProfs.Models
     {
         public int Id { get; set; }
         public int WerknemerId { get; set; }
+        public int ManagerId { get; set; }
         public string? RedenVerlof { get; set; }
 
         [DataType(DataType.Date)]
