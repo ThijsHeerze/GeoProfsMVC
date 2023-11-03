@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GeoProfs.Controllers {
+namespace GeoProfs.Controllers
+{
 
     public class VerlofManagerController : Controller
     {
@@ -8,5 +9,5 @@ namespace GeoProfs.Controllers {
         {
             return View();
         }
-    } 
+    }
 }
