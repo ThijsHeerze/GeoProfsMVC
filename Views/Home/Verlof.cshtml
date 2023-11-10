@@ -153,28 +153,55 @@
   @model List<User>
 <div class="Aanwezig">
 <h5>Schoonmakers</h5>
-    @if (Model != null)
-    {
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Aanwezig</th>
-            </tr>
-            @foreach (var user in Model)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@user.Name</td>
-                    <td>@user.Department</td>
-                    <td>@(user.Aanwezig ? "Yes" : "No")</td>
+                    <th scope="col">Naam werknemer</th>
+                    <th scope="col">Begin tijd</th>
+                    <th scope="col">Eind tijd</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Bijzonderheden</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                <tr class="table-success">
+                    <th scope="row">Frank</th>
+                    <td>09:00</td>
+                    <td>18:00</td>
+                    <td>Aanwezig</td>
+                    <td></td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="row">Freek</th>
+                    <td>10:00</td>
+                    <td>21:00</td>
+                    <td>Aanwezig</td>
+                    <td></td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">Ferdinand</th>
+                    <td>21:00</td>
+                    <td>07:00</td>
+                    <td>Afgewezen</td>
+                    <td>Nachtdienst</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Manderijn</th>
+                    <td>11:00</td>
+                    <td>20:00</td>
+                    <td>Afgewezen</td>
+                    <td>Niet opkomen dagen</td>
+                </tr>
+            </tbody>
         </table>
+
     }
     else
     {
-        <p>No data available.</p>
+        <p>No data available</p>
     }
+
+
 </div>
 </body>
 </html>

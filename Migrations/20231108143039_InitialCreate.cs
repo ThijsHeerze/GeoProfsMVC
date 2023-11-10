@@ -20,6 +20,9 @@ namespace GeoProfs.Migrations
                     WerknemerId = table.Column<int>(type: "int", nullable: false),
                     ManagerId = table.Column<int>(type: "int", nullable: false),
                     RedenVerlof = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VerlofurenGebruikt = table.Column<int>(type: "int", nullable: false),
+                    VerlofurenOver = table.Column<int>(type: "int", nullable: false),
+                    afdeling = table.Column<int>(type: "int", nullable: false),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
