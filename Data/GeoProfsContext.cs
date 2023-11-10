@@ -15,5 +15,10 @@ namespace GeoProfs.Data
         }
 
         public DbSet<GeoProfs.Models.Verlof> Verlof { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Verlof>().ToTable("Verlof");
+        }
     }
 }

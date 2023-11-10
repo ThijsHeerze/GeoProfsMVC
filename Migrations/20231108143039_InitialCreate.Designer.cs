@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfs.Migrations
 {
     [DbContext(typeof(GeoProfsContext))]
-    [Migration("20231103130641_InitialCreate")]
+    [Migration("20231108143039_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -42,12 +42,21 @@ namespace GeoProfs.Migrations
                     b.Property<string>("RedenVerlof")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("VerlofurenGebruikt")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VerlofurenOver")
+                        .HasColumnType("int");
+
                     b.Property<int>("WerknemerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("afdeling")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Verlof");
+                    b.ToTable("Verlof", (string)null);
                 });
 #pragma warning restore 612, 618
         }
