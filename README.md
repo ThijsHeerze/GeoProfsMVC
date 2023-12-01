@@ -2,7 +2,6 @@ GEOPROFS
 
 WERKWIJZE:
 
-- Het liesft apart zitten van de rest van de klas.
-- Stand up elke dag dat we C# hebben.
-- Elke dag een end of day commit
-  
+- Vaak zitten wij in een aparte kamer
+- Elke les C# houden wij in het begin een stand-up
+- Aan het einde van de dag doet iedereen een "end of day" commit
