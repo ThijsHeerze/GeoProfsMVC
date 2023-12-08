@@ -36,7 +36,7 @@ namespace GeoProfs.Controllers
             }
 
             var verlof = await _context.Verlof
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.VerlofId == id);
             if (verlof == null)
             {
                 return NotFound();
