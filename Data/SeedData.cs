@@ -14,7 +14,7 @@ namespace GeoProfs.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<GeoProfsContext>>()))
             {
-                // Look for any GeoProfs.
+
                 if (context.Verlof.Any())
                 {
                     return;   // DB has been seeded
