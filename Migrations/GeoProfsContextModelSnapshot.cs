@@ -24,34 +24,31 @@ namespace GeoProfs.Migrations
 
             modelBuilder.Entity("GeoProfs.Models.Verlof", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VerlofId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VerlofId"));
 
-                    b.Property<DateTime>("Datum")
+                    b.Property<string>("Beschrijving")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EindDatum")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("ManagerId")
-                        .HasColumnType("int");
 
                     b.Property<string>("RedenVerlof")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VerlofurenGebruikt")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("StartDatum")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("VerlofurenOver")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<int>("WerknemerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("afdeling")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("VerlofId");
 
                     b.ToTable("Verlof", (string)null);
                 });

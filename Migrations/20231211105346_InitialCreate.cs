@@ -15,19 +15,18 @@ namespace GeoProfs.Migrations
                 name: "Verlof",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    VerlofId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     WerknemerId = table.Column<int>(type: "int", nullable: false),
-                    ManagerId = table.Column<int>(type: "int", nullable: false),
                     RedenVerlof = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VerlofurenGebruikt = table.Column<int>(type: "int", nullable: false),
-                    VerlofurenOver = table.Column<int>(type: "int", nullable: false),
-                    afdeling = table.Column<int>(type: "int", nullable: false),
-                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Beschrijving = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StartDatum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EindDatum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Verlof", x => x.Id);
+                    table.PrimaryKey("PK_Verlof", x => x.VerlofId);
                 });
         }
 
