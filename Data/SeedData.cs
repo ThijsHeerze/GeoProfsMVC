@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using GeoProfs.Data;
 using System;
@@ -57,4 +57,4 @@ namespace GeoProfs.Models
             }
         }
     }
-}
+}*/

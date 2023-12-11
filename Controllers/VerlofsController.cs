@@ -90,7 +90,7 @@ namespace GeoProfs.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,WerknemerId,ManagerId,RedenVerlof,Datum")] Verlof verlof)
         {
-            if (id != verlof.Id)
+            if (id != verlof.VerlofId)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace GeoProfs.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VerlofExists(verlof.Id))
+                    if (!VerlofExists(verlof.VerlofId))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace GeoProfs.Controllers
             }
 
             var verlof = await _context.Verlof
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.VerlofId == id);
             if (verlof == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace GeoProfs.Controllers
 
         private bool VerlofExists(int id)
         {
-          return (_context.Verlof?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Verlof?.Any(e => e.VerlofId == id)).GetValueOrDefault();
         }
     }
 }

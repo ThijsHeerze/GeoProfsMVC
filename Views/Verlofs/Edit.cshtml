@@ -12,7 +12,12 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="VerlofId" />
+            <div class="form-group">
+                <label asp-for="VerlofId" class="control-label"></label>
+                <input asp-for="VerlofId" class="form-control" />
+                <span asp-validation-for="VerlofId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="WerknemerId" class="control-label"></label>
                 <input asp-for="WerknemerId" class="form-control" />
@@ -24,9 +29,19 @@
                 <span asp-validation-for="RedenVerlof" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Datum" class="control-label"></label>
-                <input asp-for="Datum" class="form-control" />
-                <span asp-validation-for="Datum" class="text-danger"></span>
+                <label asp-for="StartDatum" class="control-label"></label>
+                <input asp-for="StartDatum" class="form-control" />
+                <span asp-validation-for="StartDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EindDatum" class="control-label"></label>
+                <input asp-for="EindDatum" class="form-control" />
+                <span asp-validation-for="EindDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
