@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfs.Migrations
 {
     [DbContext(typeof(GeoProfsContext))]
-    [Migration("20231211105346_InitialCreate")]
+    [Migration("20231211112038_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
