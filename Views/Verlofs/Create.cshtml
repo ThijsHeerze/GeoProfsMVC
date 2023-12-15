@@ -14,8 +14,21 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="RedenVerlof" class="control-label"></label>
-                <input asp-for="RedenVerlof" class="form-control" />
+                <select class="form-control" id="verlof">
+                    <option value="Select an option">Select an option...</option>
+                    <option value="Ziek">Ziek</option>
+                    <option value="Vakantie">Vakantie</option>
+                    <option value="Begrafenis">Begrafenis</option>
+                    <option value="Bruiloft">Bruiloft</option>
+                    <option value="Medisch">Medisch</option>
+                    <option value="Anders...">Anders...</option>
+                </select>
                 <span asp-validation-for="RedenVerlof" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beschrijving" class="control-label"></label>
+                <input asp-for="Beschrijving" class="form-control" />
+                <span asp-validation-for="Beschrijving" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDatum" class="control-label"></label>
