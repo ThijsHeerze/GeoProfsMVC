@@ -3,69 +3,76 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<html>
+<body>
+    <h1>Index</h1>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.VerlofId)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.WerknemerId)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.RedenVerlof)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Beschrijving)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.StartDatum)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.EindDatum)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                <th class="col">
+                    aanpassingen
+                </th>
+            </thead>
+ <tbody>
+    @foreach (var item in Model) {
         <tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.VerlofId)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.WerknemerId)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.RedenVerlof)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Beschrijving)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.StartDatum)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EindDatum)
-            </tr>
-            <tr class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Status)
-            </tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.VerlofId)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.WerknemerId)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.RedenVerlof)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Beschrijving)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.StartDatum)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.EindDatum)
-                </tr>
-                <tr class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Status)
-                </tr>
-            <td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.VerlofId)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.WerknemerId)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.RedenVerlof)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.Beschrijving)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.StartDatum)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.EindDatum)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td class="col">
                 <a asp-action="Edit" asp-route-id="@item.VerlofId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.VerlofId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.VerlofId">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.VerlofId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VerlofId">Delete</a>
             </td>
         </tr>
-}
-    </tbody>
-</table>
+    }
+</tbody
+        </table>
+</body>
+</html>
