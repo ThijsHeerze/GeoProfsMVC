@@ -10,12 +10,11 @@
 <html>
 <body>
     <h1>Index</h1>
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-    <tbody>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
         <br />
-    <table class="table">
+        <table class="table">
             <thead>
                 <tr>
                     <th class="col">
@@ -43,7 +42,7 @@
                     aanpassingen
                 </th>
             </thead>
- <tbody>
+    <tbody>
     @foreach (var item in Model) {
         <tr>
             <td class="col">
@@ -74,7 +73,7 @@
             </td>
         </tr>
     }
-</tbody
-        </table>
+        </tbody>
+    </table>
 </body>
 </html>
