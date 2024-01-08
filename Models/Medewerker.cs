@@ -2,5 +2,9 @@
 {
     public class Medewerker
     {
+        public int WerknemerId { get; set; }
+        public int AfdelingId { get; set; }
+        public string? Naam { get; set; }
+        public string? Functie { get; set; }
     }
 }
