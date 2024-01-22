@@ -4,7 +4,7 @@
 }
 
 <div id="schoonmakerTable">
-    <h3>Schoonmakers</h3>
+    <h3>Welkom Fatima, Schoonmaker</h3>
     <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="index">logout</a>
     <a href="/Verlofs"> Verlof aanvragen </a>
     <br />
@@ -14,6 +14,7 @@
             <th>Functie</th>
             <th>Afwezig</th>
             <th>Medewerker Nummer</th>
+            <th>Status</th>
         </tr>
         @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Schoonmaker").OrderByDescending(m => m.IsAfwezig))
         {
