@@ -5,5 +5,48 @@
 </head>
 <body>
      <a href="/Verlofs"> Verlof aanvragen </a>
+     <br />
 </body>
 </html>
+
+
+@{
+    GeoProfs.Models.FakeIdentity fakeIdentity = new GeoProfs.Models.FakeIdentity();
+    List<GeoProfs.Models.FakeIdentity.Medewerker> medewerkers = fakeIdentity.GetMedewerkers();
+}
+
+<!-- Table for Medewerkers -->
+<h3>Medewerkers</h3>
+<table>
+    <tr>
+        <th>MedewerkerId</th>
+        <th>Naam</th>
+        <th>Functie</th>
+    </tr>
+    @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Medewerker"))
+    {
+        <tr>
+            <td>@medewerker.MedewerkerId</td>
+            <td>@medewerker.Naam</td>
+            <td>@medewerker.Functie</td>
+        </tr>
+    }
+</table>
+
+<!-- Table for Schoonmakers -->
+<h3>Schoonmakers</h3>
+<table>
+    <tr>
+        <th>MedewerkerId</th>
+        <th>Naam</th>
+        <th>Functie</th>
+    </tr>
+    @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Schoonmaker"))
+    {
+        <tr>
+            <td>@medewerker.MedewerkerId</td>
+            <td>@medewerker.Naam</td>
+            <td>@medewerker.Functie</td>
+        </tr>
+    }
+</table>

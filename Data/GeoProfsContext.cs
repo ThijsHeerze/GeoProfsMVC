@@ -15,6 +15,7 @@ namespace GeoProfs.Data
         }
 
         public DbSet<GeoProfs.Models.Verlof> Verlof { get; set; } = default!;
+        public DbSet<GeoProfs.Models.Medewerker> Medewerker { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
