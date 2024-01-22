@@ -1,100 +1,66 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Login</title>
+    <style>
+        /* ... (your existing styles) ... */
+    </style>
 </head>
 <body>
-     <a href="/Verlofs"> Verlof aanvragen </a>
-     <br />
+    <div class="text-center">
+        <h1 class="display-4">Welkom</h1>
+        <p>Login in om te beginnen.</p>
+
+        <div class="login-container">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Gebruikersnaam</label>
+                    <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="login()">Inloggen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Class with hardcoded account data
+        class HardcodedAccounts {
+            static accounts = [
+                { id: 1, username: 'Kees', password: 'manager' },
+                { id: 2, username: 'Freek', password: 'medewerker' },
+                { id: 3, username: 'Fatima', password: 'schoonmaker' },
+                { id: 4, username: 'River', password: 'hr' }
+            ];
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check against hardcoded accounts
+            var matchedAccount = HardcodedAccounts.accounts.find(account => account.username === username && account.password === password);
+
+            if (matchedAccount) {
+                // Redirect based on account type
+                if (matchedAccount.id === 1) {
+                    window.location.href = "/home/Manager";
+                } else if (matchedAccount.id === 2) {
+                    window.location.href = "/home/Medewerker";
+                } else if (matchedAccount.id === 3) {
+                    window.location.href = "/home/schoonmaker";
+                } else if (matchedAccount.id === 4) {
+                    window.location.href = "/home/Manager";
+                }
+            } else {
+                alert("Ongeldige gebruikersnaam of wachtwoord.");
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-@{
-    GeoProfs.Models.FakeIdentity fakeIdentity = new GeoProfs.Models.FakeIdentity();
-    List<GeoProfs.Models.FakeIdentity.Medewerker> medewerkers = fakeIdentity.GetMedewerkers();
-}
-
-<h3>Managers</h3>
-<table class="table">
-    <tr>
-        <th>Medewerker ID</th>
-        <th>Naam</th>
-        <th>Functie</th>
-    </tr>
-    @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Manager"))
-    {
-        <tr>
-            <td>@medewerker.MedewerkerId</td>
-            <td>@medewerker.Naam</td>
-            <td>@medewerker.Functie</td>
-        </tr>
-    }
-</table>
-
-
-<!-- Dropdown for selecting function -->
-<label for="functionSelect">Select Function:</label>
-<select id="functionSelect" onchange="showTable()">
-    <option value="Medewerker">Medewerker</option>
-    <option value="Schoonmaker">Schoonmaker</option>
-</select>
-
-<!-- Table for Medewerkers -->
-<div id="medewerkerTable" style="display: block;">
-    <h3>Medewerkers</h3>
-    <table class="table">
-        <tr>
-            <th>Naam</th>
-            <th>Functie</th>
-            <th>Afwezig</th>
-            <th>Medewerker Nummer</th>
-        </tr>
-        @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Medewerker").OrderByDescending(m => m.IsAfwezig))
-        {
-            <tr>
-                <td>@medewerker.Naam</td>
-                <td>@medewerker.Functie</td>
-                <td>@(medewerker.IsAfwezig ? "Afwezig" : "Aanwezig")</td>
-                <td>@medewerker.MedewerkerId</td>
-            </tr>
-        }
-    </table>
-</div>
-
-<!-- Table for Schoonmakers -->
-<div id="schoonmakerTable" style="display: none;">
-    <h3>Schoonmakers</h3>
-    <table class="table">
-        <tr>
-            <th>Naam</th>
-            <th>Functie</th>
-            <th>Afwezig</th>
-            <th>Medewerker Nummer</th>
-        </tr>
-        @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Schoonmaker").OrderByDescending(m => m.IsAfwezig))
-        {
-            <tr>
-                <td>@medewerker.Naam</td>
-                <td>@medewerker.Functie</td>
-                <td>@(medewerker.IsAfwezig ? "Afwezig" : "Aanwezig")</td>
-                <td>@medewerker.MedewerkerId</td>
-            </tr>
-        }
-    </table>
-</div>
-
-<script>
-    function showTable() {
-        var selectedFunction = document.getElementById("functionSelect").value;
-
-        if (selectedFunction === "Medewerker") {
-            document.getElementById("medewerkerTable").style.display = "block";
-            document.getElementById("schoonmakerTable").style.display = "none";
-        } else if (selectedFunction === "Schoonmaker") {
-            document.getElementById("medewerkerTable").style.display = "none";
-            document.getElementById("schoonmakerTable").style.display = "block";
-        }
-    }
-</script>
-
