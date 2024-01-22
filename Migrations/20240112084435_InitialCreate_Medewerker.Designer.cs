@@ -4,6 +4,7 @@ using GeoProfs.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfs.Migrations
 {
     [DbContext(typeof(GeoProfsContext))]
-    partial class GeoProfsContextModelSnapshot : ModelSnapshot
+    [Migration("20240112084435_InitialCreate_Medewerker")]
+    partial class InitialCreate_Medewerker
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
