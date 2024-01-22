@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfs.Migrations
 {
     [DbContext(typeof(GeoProfsContext))]
-    [Migration("20231211112038_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240112084435_InitialCreate_Medewerker")]
+    partial class InitialCreate_Medewerker
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,28 @@ namespace GeoProfs.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("GeoProfs.Models.Medewerker", b =>
+                {
+                    b.Property<int>("MedewerkerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedewerkerId"));
+
+                    b.Property<int>("AfdelingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Functie")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedewerkerId");
+
+                    b.ToTable("Medewerker");
+                });
 
             modelBuilder.Entity("GeoProfs.Models.Verlof", b =>
                 {

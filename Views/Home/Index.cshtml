@@ -1,9 +1,66 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Login</title>
+    <style>
+        /* ... (your existing styles) ... */
+    </style>
 </head>
 <body>
-     <a href="/Verlofs"> Verlof aanvragen </a>
+    <div class="text-center">
+        <h1 class="display-4">Welkom</h1>
+        <p>Login in om te beginnen.</p>
+
+        <div class="login-container">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Gebruikersnaam</label>
+                    <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="login()">Inloggen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Class with hardcoded account data
+        class HardcodedAccounts {
+            static accounts = [
+                { id: 1, username: 'Kees', password: 'manager' },
+                { id: 2, username: 'Freek', password: 'medewerker' },
+                { id: 3, username: 'Fatima', password: 'schoonmaker' },
+                { id: 4, username: 'River', password: 'hr' }
+            ];
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check against hardcoded accounts
+            var matchedAccount = HardcodedAccounts.accounts.find(account => account.username === username && account.password === password);
+
+            if (matchedAccount) {
+                // Redirect based on account type
+                if (matchedAccount.id === 1) {
+                    window.location.href = "/home/Manager";
+                } else if (matchedAccount.id === 2) {
+                    window.location.href = "/home/Medewerker";
+                } else if (matchedAccount.id === 3) {
+                    window.location.href = "/home/schoonmaker";
+                } else if (matchedAccount.id === 4) {
+                    window.location.href = "/home/Manager";
+                }
+            } else {
+                alert("Ongeldige gebruikersnaam of wachtwoord.");
+            }
+        }
+    </script>
 </body>
 </html>

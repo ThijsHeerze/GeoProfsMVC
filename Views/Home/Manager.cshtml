@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>Managers</h3>
+    <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="index">logout</a>
+    <a href="/Verlofs"> Verlof aanvragen </a>
+    <br />
+</body>
+</html>
+
+
+@{
+    GeoProfs.Models.FakeIdentity fakeIdentity = new GeoProfs.Models.FakeIdentity();
+    List<GeoProfs.Models.FakeIdentity.Medewerker> medewerkers = fakeIdentity.GetMedewerkers();
+}
+
+<h3>Managers</h3>
+<table class="table">
+    <tr>
+        <th>Manager Nummer</th>
+        <th>Naam</th>
+        <th>Functie</th>
+    </tr>
+    @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Manager"))
+    {
+        <tr>
+            <td>@medewerker.MedewerkerId</td>
+            <td>@medewerker.Naam</td>
+            <td>@medewerker.Functie</td>
+        </tr>
+    }
+</table>
+
+
+<!-- Dropdown for selecting function -->
+<label for="functionSelect">Select Function:</label>
+<select id="functionSelect" onchange="showTable()">
+    <option value="Medewerker">Medewerker</option>
+    <option value="Schoonmaker">Schoonmaker</option>
+</select>
+
+<!-- Table for Medewerkers -->
+<div id="medewerkerTable" style="display: block;">
+    <h3>Medewerkers</h3>
+    <table class="table">
+        <tr>
+            <th>Naam</th>
+            <th>Functie</th>
+            <th>Afwezig</th>
+            <th>Medewerker Nummer</th>
+        </tr>
+        @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Medewerker").OrderByDescending(m => m.IsAfwezig))
+        {
+            <tr>
+                <td>@medewerker.Naam</td>
+                <td>@medewerker.Functie</td>
+                <td>@(medewerker.IsAfwezig ? "Afwezig" : "Aanwezig")</td>
+                <td>@medewerker.MedewerkerId</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<!-- Table for Schoonmakers -->
+<div id="schoonmakerTable" style="display: none;">
+    <h3>Schoonmakers</h3>
+    <table class="table">
+        <tr>
+            <th>Naam</th>
+            <th>Functie</th>
+            <th>Afwezig</th>
+            <th>Medewerker Nummer</th>
+        </tr>
+        @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Schoonmaker").OrderByDescending(m => m.IsAfwezig))
+        {
+            <tr>
+                <td>@medewerker.Naam</td>
+                <td>@medewerker.Functie</td>
+                <td>@(medewerker.IsAfwezig ? "Afwezig" : "Aanwezig")</td>
+                <td>@medewerker.MedewerkerId</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<script>
+    function showTable() {
+        var selectedFunction = document.getElementById("functionSelect").value;
+
+        if (selectedFunction === "Medewerker") {
+            document.getElementById("medewerkerTable").style.display = "block";
+            document.getElementById("schoonmakerTable").style.display = "none";
+        } else if (selectedFunction === "Schoonmaker") {
+            document.getElementById("medewerkerTable").style.display = "none";
+            document.getElementById("schoonmakerTable").style.display = "block";
+        }
+    }
+</script>

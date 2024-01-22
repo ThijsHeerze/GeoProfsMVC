@@ -1,0 +1,28 @@
+﻿@{
+    GeoProfs.Models.FakeIdentity fakeIdentity = new GeoProfs.Models.FakeIdentity();
+    List<GeoProfs.Models.FakeIdentity.Medewerker> medewerkers = fakeIdentity.GetMedewerkers();
+}
+
+<div id="schoonmakerTable">
+    <h3>Schoonmakers</h3>
+    <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="index">logout</a>
+    <a href="/Verlofs"> Verlof aanvragen </a>
+    <br />
+    <table class="table">
+        <tr>
+            <th>Naam</th>
+            <th>Functie</th>
+            <th>Afwezig</th>
+            <th>Medewerker Nummer</th>
+        </tr>
+        @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Schoonmaker").OrderByDescending(m => m.IsAfwezig))
+        {
+            <tr>
+                <td>@medewerker.Naam</td>
+                <td>@medewerker.Functie</td>
+                <td>@(medewerker.IsAfwezig ? "Afwezig" : "Aanwezig")</td>
+                <td>@medewerker.MedewerkerId</td>
+            </tr>
+        }
+    </table>
+</div>

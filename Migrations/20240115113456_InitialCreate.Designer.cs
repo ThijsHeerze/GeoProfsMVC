@@ -4,6 +4,7 @@ using GeoProfs.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfs.Migrations
 {
     [DbContext(typeof(GeoProfsContext))]
-    partial class GeoProfsContextModelSnapshot : ModelSnapshot
+    [Migration("20240115113456_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +42,27 @@ namespace GeoProfs.Migrations
                     b.HasKey("AfdelingId");
 
                     b.ToTable("Afdeling", (string)null);
-                    
+                });
+
+            modelBuilder.Entity("GeoProfs.Models.Medewerker", b =>
+                {
+                    b.Property<int>("MedewerkerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedewerkerId"));
+
+                    b.Property<int>("AfdelingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Functie")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedewerkerId");
+
                     b.ToTable("Medewerker", (string)null);
                 });
 

@@ -3,81 +3,7 @@
 <head>
     <title>Login</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-image: url('https://media.istockphoto.com/id/1156171081/nl/foto/hotel-of-office-lobby-blur-achtergrond-interieur-te-bekijken-naar-de-receptie-moderne-luxe.jpg?s=612x612&w=0&k=20&c=JJrdP-msBBcY0I2OfrCH2-3gV-udrIZbGZu9Vi1JbzQ='); /* Achtergrondafbeelding URL */
-            background-size: cover; /* Achtergrondafbeelding schalen om het volledige scherm te bedekken */
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-            justify-content: center;
-            margin-left: 500px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .login-form {
-            margin-top: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-            .form-group label {
-                margin-bottom: 5px;
-            }
-
-            .form-group input {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 3px;
-            }
-
-            .form-group button {
-                display: block;
-                width: 50%;
-                height: 60px;
-                padding: 10px;
-                background-color: #007bff;
-                color: #fff;
-                text-decoration: none;
-                text-align: center;
-                border-radius: 3px;
-                margin-top: 10px;
-                display: flex;
-                margin-left: 60px;
-                cursor: pointer; /* Voeg een aanwijzer toe om aan te geven dat er geklikt kan worden */
-            }
-
-                .form-group button:hover {
-                    background-color: #0056b3;
-                }
-
-        #verlof-tab {
-            display: none; /* Verberg het Verlof tabblad bij start */
-        }
-
-        header {
-            display: none;
-        }
-
-        .display-4 {
-            margin-top: 100px;
-        }
+        /* ... (your existing styles) ... */
     </style>
 </head>
 <body>
@@ -96,33 +22,43 @@
                     <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
                 </div>
                 <div class="form-group">
-                    <button type="button" onclick="login()">Inloggen als Medewerker</button>
-                    <button type="button" onclick="loginAsManager()">Inloggen als Manager</button>
+                    <button type="button" onclick="login()">Inloggen</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
+        // Class with hardcoded account data
+        class HardcodedAccounts {
+            static accounts = [
+                { id: 1, username: 'Kees', password: 'manager' },
+                { id: 2, username: 'Freek', password: 'medewerker' },
+                { id: 3, username: 'Fatima', password: 'schoonmaker' },
+                { id: 4, username: 'River', password: 'hr' }
+            ];
+        }
+
         function login() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            // Voer hier de logica uit om in te loggen als Medewerker, bijvoorbeeld door naar verlof.cshtml te verwijzen als de inloggegevens correct zijn.
-            if (username && password) {
-                window.location.href = "Verlof"; // Hier moet je de juiste URL opgeven.
-            } else {
-                alert("Vul alstublieft uw gebruikersnaam en wachtwoord in.");
-            }
-        }
 
-        function loginAsManager() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            // Voer hier de logica uit om in te loggen als Manager, bijvoorbeeld door naar manager_verlof.cshtml te verwijzen als de inloggegevens correct zijn.
-            if (username && password) {
-                window.location.href = "/VerlofManager/Verlofmanager"; // Hier moet je de juiste URL opgeven.
+            // Check against hardcoded accounts
+            var matchedAccount = HardcodedAccounts.accounts.find(account => account.username === username && account.password === password);
+
+            if (matchedAccount) {
+                // Redirect based on account type
+                if (matchedAccount.id === 1) {
+                    window.location.href = "/home/Manager";
+                } else if (matchedAccount.id === 2) {
+                    window.location.href = "/home/Medewerker";
+                } else if (matchedAccount.id === 3) {
+                    window.location.href = "/home/Schoonmaker";
+                } else if (matchedAccount.id === 4) {
+                    window.location.href = "/home/Manager";
+                }
             } else {
-                alert("Vul alstublieft uw gebruikersnaam en wachtwoord in.");
+                alert("Ongeldige gebruikersnaam of wachtwoord.");
             }
         }
     </script>
