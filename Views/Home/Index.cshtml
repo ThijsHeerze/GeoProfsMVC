@@ -15,11 +15,28 @@
     List<GeoProfs.Models.FakeIdentity.Medewerker> medewerkers = fakeIdentity.GetMedewerkers();
 }
 
-<!-- Table for Medewerkers -->
-<h3>Medewerkers</h3>
-<table>
+<h3>Managers</h3>
+<table class="table">
     <tr>
-        <th>MedewerkerId</th>
+        <th>Medewerker ID</th>
+        <th>Naam</th>
+        <th>Functie</th>
+    </tr>
+    @foreach (var medewerker in medewerkers.Where(m => m.Functie == "Manager"))
+    {
+        <tr>
+            <td>@medewerker.MedewerkerId</td>
+            <td>@medewerker.Naam</td>
+            <td>@medewerker.Functie</td>
+        </tr>
+    }
+</table>
+
+
+<h3>Medewerkers</h3>
+<table class="table">
+    <tr>
+        <th>Medewerker ID</th>
         <th>Naam</th>
         <th>Functie</th>
     </tr>
@@ -33,11 +50,10 @@
     }
 </table>
 
-<!-- Table for Schoonmakers -->
 <h3>Schoonmakers</h3>
-<table>
+<table class="table">
     <tr>
-        <th>MedewerkerId</th>
+        <th>Medewerker ID</th>
         <th>Naam</th>
         <th>Functie</th>
     </tr>
@@ -50,3 +66,5 @@
         </tr>
     }
 </table>
+
+
