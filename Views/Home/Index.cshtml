@@ -1,9 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Login</title>
+    <style>
+        /* ... (your existing styles) ... */
+    </style>
 </head>
 <body>
-     <a href="/Verlofs"> Verlof aanvragen </a>
+    <div class="text-center">
+        <h1 class="display-4">Welkom</h1>
+        <p>Login in om te beginnen.</p>
+
+        <div class="login-container">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Gebruikersnaam</label>
+                    <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="login()">Inloggen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Class with hardcoded account data
+        class HardcodedAccounts {
+            static accounts = [
+                { id: 1, username: 'manager1', password: 'managerpassword1' },
+                { id: 2, username: 'medewerker1', password: 'password1' },
+                { id: 3, username: 'manager2', password: 'managerpassword2' },
+                { id: 4, username: 'medewerker2', password: 'password2' }
+            ];
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check against hardcoded accounts
+            var matchedAccount = HardcodedAccounts.accounts.find(account => account.username === username && account.password === password);
+
+            if (matchedAccount) {
+                // Redirect based on account type
+                if (matchedAccount.id === 1) {
+                    window.location.href = "/VerlofManager/Verlofmanager";
+                } else if (matchedAccount.id === 2) {
+                    window.location.href = "/home/index";
+                }
+            } else {
+                alert("Ongeldige gebruikersnaam of wachtwoord.");
+            }
+        }
+    </script>
 </body>
 </html>
