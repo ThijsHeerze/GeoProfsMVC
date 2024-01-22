@@ -22,6 +22,6 @@ namespace GeoProfs.Data
             modelBuilder.Entity<Verlof>().ToTable("Verlof");
         }
 
-        public DbSet<GeoProfs.Models.Medewerker>? Medewerker { get; set; }
+        public DbSet<GeoProfs.Models.Medewerker>? Werknemer { get; set; }
     }
 }
