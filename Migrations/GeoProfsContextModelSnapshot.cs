@@ -22,6 +22,47 @@ namespace GeoProfs.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("GeoProfs.Models.Afdeling", b =>
+                {
+                    b.Property<int>("AfdelingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AfdelingId"));
+
+                    b.Property<string>("AfdelingsNaam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MedewerkerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AfdelingId");
+
+                    b.ToTable("Afdeling", (string)null);
+                });
+
+            modelBuilder.Entity("GeoProfs.Models.Medewerker", b =>
+                {
+                    b.Property<int>("MedewerkerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedewerkerId"));
+
+                    b.Property<int>("AfdelingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Functie")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedewerkerId");
+
+                    b.ToTable("Medewerker", (string)null);
+                });
+
             modelBuilder.Entity("GeoProfs.Models.Verlof", b =>
                 {
                     b.Property<int>("VerlofId")

@@ -19,8 +19,13 @@ namespace GeoProfs.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Verlof>().ToTable("Verlof");
+            modelBuilder.Entity<Medewerker>().ToTable("Medewerker");
+            modelBuilder.Entity<Afdeling>().ToTable("Afdeling");
         }
 
         public DbSet<GeoProfs.Models.Medewerker>? Medewerker { get; set; }
+
+
+        public DbSet<GeoProfs.Models.Afdeling>? Afdeling { get; set; }
     }
 }
