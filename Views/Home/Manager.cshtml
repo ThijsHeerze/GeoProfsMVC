@@ -6,7 +6,7 @@
 <body>
     <h3>Managers</h3>
     <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="index">logout</a>
-    <a href="/Verlofs"> Verlof aanvragen </a>
+    <a href="/Verlofs" class="btn btn-success btn-block"> Verlof aanvragen </a>
     <br />
 </body>
 </html>
@@ -62,7 +62,8 @@
                 <td>
                     @if (!medewerker.IsGoedgekeurd)
                     {
-                        <button onclick="approveAbsence('@medewerker.Naam', 'Medewerker')">Approve</button>
+                        <button class="btn btn-success btn-block" onclick="approveAbsence('@medewerker.Naam', 'Medewerker')">Approve</button>
+                        <button class="btn btn-danger btn-block" onclick="rejectAbsence('@medewerker.Naam', 'Medewerker')">Reject</button>
                     }
                 </td>
             </tr>
@@ -92,7 +93,8 @@
                 <td>
                     @if (!medewerker.IsGoedgekeurd)
                     {
-                        <button onclick="approveAbsence('@medewerker.Naam', 'Schoonmaker')">Approve</button>
+                        <button class="btn btn-success btn-block" onclick="approveAbsence('@medewerker.Naam', 'Schoonmaker')">Approve</button>
+                        <button class="btn btn-danger btn-block" onclick="rejectAbsence('@medewerker.Naam', 'Schoonmaker')">Reject</button>
                     }
                 </td>
             </tr>
@@ -116,5 +118,9 @@
     function approveAbsence(Naam, functie) {
 
         alert("vervlof van functie " + functie + " voor medewerker: " + Naam + " is goedgekeurd");
+    }
+    function rejectAbsence(Naam, functie) {
+
+        alert("vervlof van functie " + functie + " voor medewerker: " + Naam + " is Afgekeurd");
     }
 </script>

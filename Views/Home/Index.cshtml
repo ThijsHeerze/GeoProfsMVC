@@ -7,26 +7,33 @@
     </style>
 </head>
 <body>
-    <div class="text-center">
-        <h1 class="display-4">Welkom</h1>
-        <p>Login in om te beginnen.</p>
+    <div class="container">
+        <div class="text-center mt-5">
+            <h1 class="display-4">Welcome</h1>
+            <p>Login to get started.</p>
 
-        <div class="login-container">
-            <form class="login-form" id="loginForm">
-                <div class="form-group">
-                    <label for="username">Gebruikersnaam</label>
-                    <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Wachtwoord</label>
-                    <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
-                </div>
-                <div class="form-group">
-                    <button type="button" onclick="login()">Inloggen</button>
+            <form class="login-form">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-success btn-block " type="button" onclick="login()">Login</button>
+                        </div>
+                    </div>
+
                 </div>
             </form>
         </div>
     </div>
+
 
     <script>
         // Class with hardcoded account data
@@ -37,7 +44,7 @@
                 { id: 3, username: 'Fatima', password: 'schoonmaker' },
                 { id: 4, username: 'River', password: 'hr' }
             ];
-        }
+        }   
 
         function login() {
             var username = document.getElementById("username").value;

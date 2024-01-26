@@ -22,12 +22,12 @@
             List<Medewerker> medewerkers = new List<Medewerker>
             {
                 new Medewerker { MedewerkerId = 10, Naam = "Jan", Functie = "Manager", IsAfwezig = false, IsGoedgekeurd = false },
-                new Medewerker { MedewerkerId = 11, Naam = "Piet", Functie = "Medewerker", IsAfwezig = true, IsGoedgekeurd = false },
+                new Medewerker { MedewerkerId = 11, Naam = "Freek", Functie = "Medewerker", IsAfwezig = true, IsGoedgekeurd = false },
                 new Medewerker { MedewerkerId = 12, Naam = "Klaas", Functie = "Schoonmaker", IsAfwezig = false, IsGoedgekeurd = false },
-                new Medewerker { MedewerkerId = 13, Naam = "Kees", Functie = "Schoonmaker", IsAfwezig = true, IsGoedgekeurd = false },
-                new Medewerker { MedewerkerId = 14, Naam = "Eva", Functie = "Manager", IsAfwezig = true, IsGoedgekeurd = false },
+                new Medewerker { MedewerkerId = 13, Naam = "Kees", Functie = "Manager", IsAfwezig = true, IsGoedgekeurd = false },
+                new Medewerker { MedewerkerId = 14, Naam = "Eva", Functie = "Medewerker", IsAfwezig = true, IsGoedgekeurd = false },
                 new Medewerker { MedewerkerId = 15, Naam = "Lisa", Functie = "Medewerker", IsAfwezig = false, IsGoedgekeurd = false },
-                new Medewerker { MedewerkerId = 16, Naam = "Tom", Functie = "Schoonmaker", IsAfwezig = true, IsGoedgekeurd = false },
+                new Medewerker { MedewerkerId = 16, Naam = "Fatima", Functie = "Schoonmaker", IsAfwezig = true, IsGoedgekeurd = false },
                 new Medewerker { MedewerkerId = 17, Naam = "Anna", Functie = "Schoonmaker", IsAfwezig = false, IsGoedgekeurd = false },
             };
 
